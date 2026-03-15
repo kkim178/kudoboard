@@ -53,5 +53,14 @@ function BoardPage() {
 }
 
 function KudoCard({ kudo }: { kudo: Kudo }) {
-  // ... same as before
+  return (
+    <Card className={kudo.color}>
+      <CardContent className="pt-1">
+        <p className="mb-3 text-sm">{kudo.message}</p>
+        <p className="text-xs font-semibold text-muted-foreground">
+          — {kudo.author}
+        </p>
+      </CardContent>
+    </Card>
+  );
 }

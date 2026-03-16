@@ -4,7 +4,7 @@ import type { Kudo } from "@/data/types";
 import { useReducer } from "react"; // 👀
 import AddKudoForm from "@/components/add-kudo-form";
 import KudoCard from "@/components/kudo-card"; // 👀
-import { kudosReducer } from "@/reducers/kudos"; // 👀
+import { boardsReducer } from "@/reducers/boards"; // 👀
 
 export const Route = createFileRoute("/boards/$boardId")({
   component: BoardPage,
@@ -14,7 +14,7 @@ function BoardPage() {
   const { boardId } = Route.useParams();
   const board = INITIAL_BOARDS.find((b) => b.id === boardId);
 
-  const [kudos, dispatch] = useReducer(kudosReducer, board?.kudos ?? []); // 👀
+  const [kudos, dispatch] = useReducer(boardsReducer, board?.kudos ?? []); // 👀
 
   if (!board) {
     return (
